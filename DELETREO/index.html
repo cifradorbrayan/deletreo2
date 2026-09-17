@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spelling Bee - Juego de Deletreo</title>
+  <!-- Enlace a la hoja de estilos externa -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="bodyRoot">
+
+  <!-- BOTÓN ESQUINA INFERIOR IZQUIERDA: VER PALABRA -->
+  <button id="btnPeek" class="btn-floating btn-bottom-left hidden" title="Mantén presionado para ver la palabra">
+    👁️ <span>Ver palabra</span>
+  </button>
+
+  <!-- BOTÓN ESQUINA INFERIOR DERECHA: SIGUIENTE PALABRA -->
+  <button id="btnSkip" class="btn-floating btn-bottom-right hidden" title="Pasar a la siguiente palabra">
+    <span>Siguiente</span> ⏭️
+  </button>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container">
+
+    <!-- 1. PANTALLA DE INICIO -->
+    <div id="startScreen">
+      <h1>Spelling Bee</h1>
+      <p>Escucha con atención y deletrea las 50 palabras en inglés. La temática de colores cambiará según la dificultad.</p>
+      <button id="btnStart" class="btn-main">JUGAR</button>
+    </div>
+
+    <!-- 2. PANTALLA DEL JUEGO -->
+    <div id="gameScreen" class="hidden">
+      <!-- Indicador de dificultad superior -->
+      <div id="difficultyBadge" class="difficulty-badge">FÁCIL</div>
+
+      <!-- Barra de estadísticas -->
+      <div class="stats-bar">
+        <span>Aciertos: <b id="score">0</b></span>
+        <span>Racha: <b id="streak">0</b></span>
+        <span>Restantes: <b id="remaining">50</b></span>
+      </div>
+
+      <!-- Botón para escuchar pronunciación -->
+      <div>
+        <button id="btnAudio" class="btn-audio">
+          🔊 Escuchar palabra
+        </button>
+      </div>
+
+      <!-- Longitud de la palabra en guiones -->
+      <div id="wordSlots" class="word-slots">_ _ _ _</div>
+
+      <!-- Formulario de respuesta -->
+      <form id="spellingForm" class="form-group" autocomplete="off">
+        <input 
+          type="text" 
+          id="userInput" 
+          placeholder="Escribe la palabra aquí..." 
+          autocomplete="off" 
+          spellcheck="false" 
+        />
+        <button type="submit" class="btn-submit">Comprobar</button>
+      </form>
+
+      <!-- Espacio donde se revela la palabra al mantener presionado el botón izquierdo -->
+      <div id="wordReveal" class="word-reveal"></div>
+
+      <!-- Mensaje de retroalimentación -->
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+  </div>
+
+  <!-- Enlace al archivo de lógica JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
